@@ -15,4 +15,5 @@ class PrintScreen:
             # monitor = {"top": 160, "left": 160, "width": 1000, "height": 135}
 
             # Grab the data
-            return sct_img[:, :, :3]
+            data = sct_img[:, :, :3]
+            return data

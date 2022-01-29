@@ -94,6 +94,9 @@
     hero_threshold: 0.8
     home_button_threshold: 0.9
 
+  screen:
+    offset_x: -1920
+    offset_y: 0
 
   # [en_US]
   # Default value: 60

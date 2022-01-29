@@ -1,16 +1,15 @@
 from src.helpers.config.validate import ConfigValidation
+from src.helpers.config.config_instance import ConfigInstance
 
 
-class ConfigThresholds:
+class ConfigThresholds(ConfigInstance):
     """ 
     [en_US] How confident the bot needs to be to click the buttons (values from 0 to 1. 0 is the minimum value, 1 is the maximum value)
     [pt_BR] O quão confiante o bot precisa estar para clicar nos botões (valores entre 0 e 1. 0 é o valor mínimo, 1 é o valor máximo)
     """
 
     def __init__(self, values: dict) -> None:
-        self.values = values['threshold']
-
-        validate = ConfigValidation(values, 'threshold')
+        validate = ConfigValidation(values['threshold'], 'threshold')
 
         self.default = validate.compose(
             'default').required().number().percent().value

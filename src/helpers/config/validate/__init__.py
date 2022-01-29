@@ -1,11 +1,11 @@
+from src.helpers.config.config_instance import ConfigInstance
 from src.helpers.config.validate.rules import ConfigValidationRule
 
 
-class ConfigValidation:
+class ConfigValidation(ConfigInstance):
     def __init__(self, source, path) -> None:
         self.__source = source
         self.__path = path
 
     def compose(self, key):
-        value = self.__source[key]
-        return ConfigValidationRule(key, value, self.__path, self.__source)
+        return ConfigValidationRule(key, self.__path, self.__source)

@@ -1,11 +1,10 @@
 from src.helpers.config.validate import ConfigValidation
+from src.helpers.config.config_instance import ConfigInstance
 
 
-class ConfigTimeIntervals:
+class ConfigTimeIntervals(ConfigInstance):
     def __init__(self, values) -> None:
-        self.values = values['time_intervals']
-
-        validate = ConfigValidation(values, 'time_intervals')
+        validate = ConfigValidation(values['time_intervals'], 'time_intervals')
 
         self.send_heroes_for_work = validate.compose(
             'send_heroes_for_work').required().positive().value

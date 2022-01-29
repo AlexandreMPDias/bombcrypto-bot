@@ -1,16 +1,15 @@
 from src.helpers.config.validate import ConfigValidation
+from src.helpers.config.config_instance import ConfigInstance
 
 
-class ConfigHome:
+class ConfigHome(ConfigInstance):
     """ 
     [en_US] How confident the bot needs to be to click the buttons (values from 0 to 1. 0 is the minimum value, 1 is the maximum value)
     [pt_BR] O quão confiante o bot precisa estar para clicar nos botões (valores entre 0 e 1. 0 é o valor mínimo, 1 é o valor máximo)
     """
 
     def __init__(self, values: dict) -> None:
-        self.values = values['home']
-
-        validate = ConfigValidation(values, 'home')
+        validate = ConfigValidation(values['home'], 'home')
 
         self.enable = validate.compose(
             'enable').required().boolean().value
